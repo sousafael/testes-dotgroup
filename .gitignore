@@ -1,0 +1,5 @@
+# Ignorar os dados sensíveis dos testes
+cypress/fixtures/testData.json
+
+# Node modules
+node_modules/
