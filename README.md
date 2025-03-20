@@ -65,8 +65,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: Install dependencies
         run: npm install
+
+      - name: Copiar testData.example.json para testData.json (se não existir)
+        run: |
+          if [ ! -f cypress/fixtures/testData.json ]; then
+            cp cypress/fixtures/testData.example.json cypress/fixtures/testData.json
+          fi
+
       - name: Run Cypress tests
         run: npx cypress run
 ```
@@ -82,7 +90,7 @@ jobs:
 ### **Passos:**
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/sousafael/testes-dotgroup.git
    ```
 2. Acesse a pasta do projeto:
    ```bash
